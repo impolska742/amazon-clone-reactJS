@@ -24,6 +24,11 @@
   border-radius: 2px;
 }
 
+.subtotal__btn:hover {
+  transition: 0.2s all ease-in-out;
+  background-color: #e7af47;
+}
+
 .subtotal__gift {
   display: flex;
   align-items: center;
