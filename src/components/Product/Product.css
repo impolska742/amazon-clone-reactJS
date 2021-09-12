@@ -51,4 +51,10 @@
   margin: 20px 0;
   border-color: #a88734 #9c7e31 #846a29;
   font-size: 1.2rem;
+  transition: 0.2s all ease-in-out;
+}
+
+.product__btn:hover {
+  transition: 0.2s all ease-in-out;
+  background-color: rgb(190, 126, 6);
 }
