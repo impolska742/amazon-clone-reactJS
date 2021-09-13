@@ -17,7 +17,7 @@ const Subtotal = () => {
 
   useEffect(() => {
     totalValue();
-  }, []);
+  }, [basket?.length]);
 
   return (
     <div className="subtotal">
@@ -36,7 +36,7 @@ const Subtotal = () => {
         displayType={"text"}
         thousandSeparator={true}
         prefix={"$"}
-        decimalScale={2}
+        decimalScale={1}
       />
 
       <button className="subtotal__btn">Proceed to checkout</button>

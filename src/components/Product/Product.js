@@ -4,7 +4,6 @@ import "./Product.css";
 
 const Product = ({ id, title, img, price, rating }) => {
   const [{ basket }, dispatch] = useStateValue();
-  console.log("This is the basket >>> ", basket);
   const addToBasket = () => {
     // Dispatch the item into the data-layer
     dispatch({
@@ -37,7 +36,6 @@ const Product = ({ id, title, img, price, rating }) => {
       </div>
 
       <img className="product__img" src={img} alt="The Lean Startup" />
-
       <button onClick={addToBasket} className="product__btn">
         Add to Basket
       </button>

@@ -17,14 +17,15 @@ const Checkout = () => {
         <div className="checkout__basket">
           <h2 className="checkout__title">Your Shopping Basket</h2>
           {basket.map((item) => {
-            const { id, title, price, rating, img } = item;
+            const { id, title, price, rating, img, factor } = item;
             return (
               <BasketItem
-                key={id}
+                id={id}
                 title={title}
                 price={price}
                 rating={rating}
                 img={img}
+                factor={factor}
               />
             );
           })}
