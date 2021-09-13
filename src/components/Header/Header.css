@@ -99,3 +99,16 @@
 .header__basketCount {
   margin: 0 10px;
 }
+
+.header__checkoutIcon {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.11s ease-in-out all;
+  border: 1px solid var(--amazon-blue);
+  border-radius: 5px;
+}
+
+.header__checkoutIcon:hover {
+  border: 1px solid #fff;
+  transition: 0.11s ease-in-out all;
+}
