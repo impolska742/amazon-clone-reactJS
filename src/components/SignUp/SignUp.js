@@ -1,35 +1,46 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../firebase";
-import "./Login.css";
-
-const Login = () => {
+import "./Signup.css";
+const SignUp = () => {
   const history = useHistory();
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = (e) => {
+  const signUp = (e) => {
     e.preventDefault();
-
     auth
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
-        history.push("/");
+        auth.user.updateProfile({
+          displayName: fullName,
+        });
       })
       .catch((error) => alert(error.message));
+    history.push("/");
   };
 
   return (
-    <div className="login">
+    <div className="signUp">
       <Link to="/">
         <img
-          className="login__img"
+          className="signUp__img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
           alt="Amazon Logo"
         />
       </Link>
-      <div className="login__container">
-        <h1 className="login__heading">Sign In</h1>
+      <div className="signUp__container">
+        <h1 className="signUp__heading">Sign Up</h1>
+        <strong>Full Name</strong>
+        <input
+          type="text"
+          value={fullName}
+          onChange={(e) => {
+            setFullName(e.target.value);
+          }}
+          placeholder="Your Full Name"
+        />
         <strong>E-Mail</strong>
         <input
           type="email"
@@ -49,21 +60,17 @@ const Login = () => {
           placeholder="Your Password"
         />
 
-        <button className="login__btn" onClick={signIn} type="submit">
-          Sign In
+        <button className="signUp__btn" onClick={signUp} type="submit">
+          Sign Up
         </button>
-
-        <p className="login__license">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia illo
-          omnis voluptatibus sunt? Sed inventore iure voluptatem quia tenetur
-          repellendus!
-        </p>
-        <Link to="/sign-up" className="login__signupBtn">
-          Create your Amazon Account
-        </Link>
       </div>
+
+      <h2 className="signUp__text">Already a user?</h2>
+      <Link to="/login" onClick={signUp} className="login__btn login__link">
+        Click here to login
+      </Link>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;
