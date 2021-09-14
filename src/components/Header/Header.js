@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -7,7 +7,7 @@ import { useStateValue } from "../../Datalayer/StateProvider";
 import { auth } from "../../firebase";
 
 const Header = () => {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user }] = useStateValue();
 
   const handleAuthentication = () => {
     if (user) {
@@ -25,11 +25,10 @@ const Header = () => {
         />
       </Link>
 
-      <div className="header__address">
-        {/* Address Pin Logo */}
+      {/* <div className="header__address">
         <span className="header__addressLineOne">Deliver to Vaibhav</span>
         <span className="header__addressLineTwo">Jaipur 302001</span>
-      </div>
+      </div> */}
       <div className="header__search">
         <input type="text" className="header__searchInput" />
         <SearchIcon className="header__searchIcon" />
@@ -37,7 +36,9 @@ const Header = () => {
       <div className="header__nav">
         <Link className="header__loginIcon" to={!user && "/login"}>
           <div onClick={handleAuthentication} className="header__option">
-            <span className="header__optionLineOne">Hello Vaibhav</span>
+            <span className="header__optionLineOne">
+              Hello {!user ? "Guest" : user.email}
+            </span>
             <span className="header__optionLineTwo">
               {user ? "Sign Out" : "Sign In"}
             </span>
