@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../firebase";
 import "./Login.css";
@@ -10,6 +10,13 @@ const Login = () => {
 
   const signIn = (e) => {
     e.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push("/");
+      })
+      .catch((error) => alert(error.message));
   };
   const signUp = (e) => {
     e.preventDefault();
