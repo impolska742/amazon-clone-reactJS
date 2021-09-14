@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../firebase";
 import "./Login.css";
 
 const Login = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,7 +16,10 @@ const Login = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
-        console.log(auth);
+        // console.log(auth);
+        if (auth) {
+          history.push("/");
+        }
       })
       .catch((error) => alert(error.message));
   };
