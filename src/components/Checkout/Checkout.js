@@ -5,7 +5,7 @@ import BasketItem from "../BasketItem/BasketItem";
 import { useStateValue } from "../../Datalayer/StateProvider";
 
 const Checkout = () => {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }] = useStateValue();
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -15,6 +15,7 @@ const Checkout = () => {
           alt="Checkout Page Advertisement"
         />
         <div className="checkout__basket">
+          <h3>Hello, {user?.email}</h3>
           <h2 className="checkout__title">Your Shopping Basket</h2>
           {basket.map((item) => {
             const { id, title, price, rating, img, factor } = item;

@@ -7,8 +7,8 @@
 
 .basketItem {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .basketItem__rating {
@@ -41,6 +41,7 @@
   border: 1px solid;
   transition: 0.2s all ease-in-out;
   border-radius: 2px;
+  width: 200px;
 }
 
 .basketItem__removeBtn:hover {
