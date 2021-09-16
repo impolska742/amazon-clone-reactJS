@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CurrencyFormat from "react-currency-format";
 import { useHistory } from "react-router";
+import { getBasketTotal } from "../../Datalayer/reducer";
 import { useStateValue } from "../../Datalayer/StateProvider";
 import "./Subtotal.css";
 
 const Subtotal = () => {
   const history = useHistory();
   const [{ basket }] = useStateValue();
-  const [sum, setSum] = useState(0);
-
-  const totalValue = () => {
-    let sum = 0;
-    basket.forEach((item) => {
-      sum += item.price;
-    });
-    setSum(sum);
-  };
-
-  useEffect(() => {
-    totalValue();
-  }, [basket?.length]);
 
   return (
     <div className="subtotal">
@@ -34,7 +22,7 @@ const Subtotal = () => {
             </small>
           </>
         )}
-        value={sum}
+        value={getBasketTotal(basket)}
         prefix="$"
         displayType={"text"}
         thousandSeparator={true}
