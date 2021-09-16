@@ -30,7 +30,7 @@ const BasketItem = ({ id, title, img, price, rating }) => {
               return <p key={i}>⭐</p>;
             })}
         </div>
-        <button onClick={removeFromCart} className="basketItem__removeBtn">
+        <button onClick={removeFromCart} className="amazonBtn">
           Remove from Cart
         </button>
       </div>

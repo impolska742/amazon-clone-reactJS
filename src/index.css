@@ -12,3 +12,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.amazonBtn {
+  cursor: pointer;
+  background-color: #f0c14b;
+  padding: 5px 20px;
+  border-color: #a88734 #9c7e31 #846a29;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid;
+  transition: 0.2s all ease-in-out;
+  border-radius: 2px;
+  width: 200px;
+}
+
+.amazonBtn:hover {
+  transition: 0.2s all ease-in-out;
+  background-color: #e7af47;
+}

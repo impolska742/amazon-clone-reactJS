@@ -24,20 +24,21 @@ const Subtotal = () => {
   return (
     <div className="subtotal">
       <CurrencyFormat
-        renderText={() => (
+        renderText={(value) => (
           <>
             <p>
-              Subtotal ({basket?.length} items) : <strong>{sum}</strong>
+              Subtotal ({basket?.length} items) : <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" /> This order contains a gift.
             </small>
           </>
         )}
+        value={sum}
+        prefix="$"
         displayType={"text"}
         thousandSeparator={true}
-        prefix={"$"}
-        decimalScale={1}
+        decimalScale={2}
       />
 
       <button
