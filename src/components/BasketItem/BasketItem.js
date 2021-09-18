@@ -2,7 +2,7 @@ import React from "react";
 import { useStateValue } from "../../Datalayer/StateProvider";
 import "./BasketItem.css";
 
-const BasketItem = ({ id, title, img, price, rating }) => {
+const BasketItem = ({ id, title, img, price, rating, hideBtn }) => {
   const [{ basket }, dispatch] = useStateValue();
 
   const removeFromCart = () => {
@@ -29,9 +29,11 @@ const BasketItem = ({ id, title, img, price, rating }) => {
               return <p key={i}>⭐</p>;
             })}
         </div>
-        <button onClick={removeFromCart} className="amazonBtn">
-          Remove from Cart
-        </button>
+        {!hideBtn && (
+          <button onClick={removeFromCart} className="amazonBtn">
+            Remove from Cart
+          </button>
+        )}
       </div>
     </div>
   );

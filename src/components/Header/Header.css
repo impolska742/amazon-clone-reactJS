@@ -112,3 +112,16 @@
   border: 1px solid #fff;
   transition: 0.11s ease-in-out all;
 }
+
+.header__orders {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.11s ease-in-out all;
+  border: 1px solid var(--amazon-blue);
+  border-radius: 5px;
+}
+
+.header__orders:hover {
+  border: 1px solid #fff;
+  transition: 0.11s ease-in-out all;
+}
