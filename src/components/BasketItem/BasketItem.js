@@ -20,8 +20,7 @@ const BasketItem = ({ id, title, img, price, rating }) => {
       <div className="basketItem__right">
         <strong className="basketItem__title">{title}</strong>
         <p className="basketItem__price">
-          <small>$</small>
-          <strong>{price}</strong>
+          <strong>₹{price}</strong>
         </p>
         <div className="basketItem__rating">
           {Array(rating)

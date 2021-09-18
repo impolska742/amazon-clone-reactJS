@@ -23,7 +23,7 @@ const Subtotal = () => {
           </>
         )}
         value={getBasketTotal(basket)}
-        prefix="$"
+        prefix="₹"
         displayType={"text"}
         thousandSeparator={true}
         decimalScale={2}
