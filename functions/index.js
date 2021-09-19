@@ -1,15 +1,16 @@
+/* eslint-disable object-curly-spacing */
+/* eslint-disable max-len */
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
 const stripe = require("stripe")(
-  "sk_test_51JaJBSSEglmy4cB0zV49hpLDWjH4463kkHdJqNItNfd5XrwxCPXS4HfOpfpUd7sxczImwIcCG25wUViDfvQcI9wZ003EaspBdG"
+    // eslint-disable-next-line max-len
+    // eslint-disable-next-line comma-dangle
+    "sk_test_51JaJBSSEglmy4cB0zV49hpLDWjH4463kkHdJqNItNfd5XrwxCPXS4HfOpfpUd7sxczImwIcCG25wUViDfvQcI9wZ003EaspBdG"
 );
-
 // API
-
 // - Api Config
 const app = express();
-
 // - Middlewares
 app.use(cors({ origin: true }));
 app.use(express.json());
